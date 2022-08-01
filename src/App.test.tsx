@@ -1,6 +1,6 @@
-import { Answer, Credentials, QuestionData } from "../config/types";
-import { actions, initialState, store } from "./store";
-import { questions, users } from "../service/_DATA";
+import { Answer, Credentials, QuestionData } from "./config/types";
+import { actions, initialState, store } from "./redux/store";
+import { questions, users } from "./service/_DATA";
 import { createRoot } from "react-dom/client";
 import {
 	render,
@@ -11,12 +11,12 @@ import {
 } from "@testing-library/react";
 
 import { BrowserRouter, MemoryRouter } from "react-router-dom";
-import App from "../App";
+import App from "./App";
 import React from "react";
 import { CssBaseline, StyledEngineProvider } from "@mui/material";
 import { Provider } from "react-redux";
-import { QuestionManage } from "../components/Question";
-import { leaderboardProps } from "../config/sections";
+import { QuestionManage } from "./components/Question";
+import { leaderboardProps } from "./config/sections";
 
 describe("store", () => {
 	describe("Basic Redux users state tests", () => {
@@ -137,7 +137,9 @@ describe("store", () => {
 				<React.StrictMode>
 					<StyledEngineProvider injectFirst>
 						<CssBaseline />
-						<Provider store={store}></Provider>
+						<Provider store={store}>
+							<App />
+						</Provider>
 					</StyledEngineProvider>
 				</React.StrictMode>
 			);

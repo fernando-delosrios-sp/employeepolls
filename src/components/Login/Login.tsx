@@ -11,7 +11,6 @@ import {
 	Tooltip,
 	Typography,
 } from "@mui/material";
-import "firebaseui/dist/firebaseui.css";
 import { FormEvent, useState } from "react";
 import { LoginProps } from "./types";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";

@@ -173,20 +173,115 @@
   }
 }
 
+#root .pointer-events-none {
+  pointer-events: none
+}
+
 #root .static {
   position: static
+}
+
+#root .float-right {
+  float: right
+}
+
+#root .my-5 {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem
+}
+
+#root .mx-auto {
+  margin-left: auto;
+  margin-right: auto
+}
+
+#root .mx-5 {
+  margin-left: 1.25rem;
+  margin-right: 1.25rem
+}
+
+#root .mt-5 {
+  margin-top: 1.25rem
+}
+
+#root .mr-2 {
+  margin-right: 0.5rem
+}
+
+#root .mb-10 {
+  margin-bottom: 2.5rem
+}
+
+#root .mt-2 {
+  margin-top: 0.5rem
+}
+
+#root .mb-16 {
+  margin-bottom: 4rem
+}
+
+#root .ml-2 {
+  margin-left: 0.5rem
+}
+
+#root .block {
+  display: block
+}
+
+#root .flex {
+  display: flex
+}
+
+#root .hidden {
+  display: none
+}
+
+#root .h-16 {
+  height: 4rem
+}
+
+#root .h-48 {
+  height: 12rem
 }
 
 #root .min-h-screen {
   min-height: 100vh
 }
 
+#root .min-h-full {
+  min-height: 100%
+}
+
+#root .w-full {
+  width: 100%
+}
+
 #root .w-1\/3 {
   width: 33.333333%
 }
 
-#root .min-w-full {
-  min-width: 100%
+#root .w-16 {
+  width: 4rem
+}
+
+#root .w-48 {
+  width: 12rem
+}
+
+#root .w-28 {
+  width: 7rem
+}
+
+#root .flex-1 {
+  flex: 1 1 0%
+}
+
+#root .grow {
+  flex-grow: 1
+}
+
+#root .cursor-default {
+  cursor: default
 }
 
 #root .flex-row {
@@ -209,17 +304,17 @@
   gap: 0.5rem
 }
 
-#root .border-solid {
-  border-style: solid
+#root .self-center {
+  align-self: center
 }
 
-#root .border-dotted {
-  border-style: dotted
-}
-
-#root .bg-slate-100 {
+#root .bg-gray-200 {
   --tw-bg-opacity: 1;
-  background-color: rgb(241 245 249 / var(--tw-bg-opacity))
+  background-color: rgb(229 231 235 / var(--tw-bg-opacity))
+}
+
+#root .bg-transparent {
+  background-color: transparent
 }
 
 #root .px-5 {
@@ -227,7 +322,38 @@
   padding-right: 1.25rem
 }
 
+#root .px-3 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem
+}
+
 #root .py-5 {
   padding-top: 1.25rem;
   padding-bottom: 1.25rem
+}
+
+#root .pb-1 {
+  padding-bottom: 0.25rem
+}
+
+#root .pb-2 {
+  padding-bottom: 0.5rem
+}
+
+#root .pb-3 {
+  padding-bottom: 0.75rem
+}
+
+#root .text-center {
+  text-align: center
+}
+
+#root .text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem
+}
+
+#root .filter {
+  -webkit-filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+          filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)
 }

@@ -1,24 +1,15 @@
+import { fireEvent, render } from "@testing-library/react";
 import { Answer, Credentials, QuestionData } from "./config/types";
 import { actions, initialState, store } from "./redux/store";
 import { questions, users } from "./service/_DATA";
-import { createRoot } from "react-dom/client";
-import {
-	render,
-	screen,
-	fireEvent,
-	getByText,
-	queryByText,
-} from "@testing-library/react";
 
-import { BrowserRouter, MemoryRouter } from "react-router-dom";
-import App from "./App";
-import React from "react";
 import { CssBaseline, StyledEngineProvider } from "@mui/material";
+import React from "react";
 import { Provider } from "react-redux";
-import { QuestionManage } from "./components/Question";
-import { leaderboardProps } from "./config/sections";
+import App from "./App";
+import { addProps } from "./config/sections";
 
-describe("store", () => {
+describe("App", () => {
 	describe("Basic Redux users state tests", () => {
 		it("Test initial state", async () => {
 			expect(store.getState().users).toEqual(initialState.users);
@@ -114,6 +105,25 @@ describe("store", () => {
 
 	describe("Render tests", () => {
 		it("Initial page", async () => {
+			const snap = render(
+				<React.StrictMode>
+					<StyledEngineProvider injectFirst>
+						<CssBaseline />
+						<Provider store={store}>
+							<App />
+						</Provider>
+					</StyledEngineProvider>
+				</React.StrictMode>
+			);
+			expect(snap).toMatchSnapshot();
+		});
+
+		it("Switch to Add new question tab", async () => {
+			const credentials: Credentials = {
+				id: users.sarahedo.id,
+				password: users.sarahedo.password,
+			};
+			await store.dispatch(actions.session.login(credentials));
 			const app = render(
 				<React.StrictMode>
 					<StyledEngineProvider injectFirst>
@@ -124,30 +134,10 @@ describe("store", () => {
 					</StyledEngineProvider>
 				</React.StrictMode>
 			);
-			expect(app).toMatchSnapshot();
-		});
 
-		it("Switch to leaderboard tab", async () => {
-			const credentials: Credentials = {
-				id: users.sarahedo.id,
-				password: users.sarahedo.password,
-			};
-			await store.dispatch(actions.session.login(credentials));
-			render(
-				<React.StrictMode>
-					<StyledEngineProvider injectFirst>
-						<CssBaseline />
-						<Provider store={store}>
-							<App />
-						</Provider>
-					</StyledEngineProvider>
-				</React.StrictMode>
-			);
-
-			const leaderboardTab = getByText(document.body, leaderboardProps.name);
-			fireEvent.click(leaderboardTab);
-			const leaderboardTitle = getByText(document.body, leaderboardProps.title);
-			expect(leaderboardTitle).toBeInTheDocument();
+			const addTab = app.getByText(addProps.name);
+			fireEvent.click(addTab);
+			expect(app.getByText("Would you rather")).toBeDefined();
 		});
 	});
 });

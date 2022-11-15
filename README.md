@@ -1,4 +1,4 @@
-# "Employee polls” Project
+# "Employee polls" Project
 
 This is the final assessment project for Udacity's React-Redux course, which is a part of the [React Nanodegree program](https://www.udacity.com/course/react-nanodegree--nd019).
 
